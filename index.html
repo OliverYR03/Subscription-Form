@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login </title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="backb">
+        <div class="container backw">
+            <div class="row col-12">
+                <div class="col-6 tl order-2 order-md-1">
+                    <form novalidate>
+                    <h1>Stay updated!</h1>
+                    <p class="text">Join 60,000+ product managers receiving monthly updates on:</p>
+                    <p class="list"><img src="/assets/img/icon-list.svg" width="20px">&nbsp;&nbsp;&nbsp;Product discovery and building what matters</p>
+                    <p class="list"><img src="/assets/img/icon-list.svg" width="20px">&nbsp;&nbsp;&nbsp;Measuring to ensure updates are a success</p>
+                    <p class="list f"><img src="/assets/img/icon-list.svg" width="20px">&nbsp;&nbsp;&nbsp;And mucho more!</p>
+                    <br>
+                    
+                    <label class="em">Email adress</label>
+                    <label class="input_error" id="error">Valid email required</label>
+                    <input type="email" name="email" id="email" placeholder="email@company.com" >
+    
+                    <button type="submit" onclick="getEmail()">Subscribe to monthly newsletter</button>
+                </form>
+                </div>
+    
+                <div class="col-6 tr order-1 order-md-2 d-flex align-items-center">
+                    <img class="imgl" src="/assets/img/illustration-sign-up-desktop.svg">
+                    <img class="imgl2" src="/assets/img/illustration-sign-up-mobile.svg" alt="">
+                </div>
+            </div>
+            </div>
+            
+            <script>
+
+            function getEmail(event) {
+                  event.preventDefault(); // Evita que el formulario se envíe de forma predeterminada
+            
+                  var emailInput = document.getElementById('email');
+                  var email = emailInput.value;
+                  var regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                  
+            
+                  // Almacena el email en el almacenamiento local
+                  localStorage.setItem('email', email);
+
+                if (regex.test(email) && email.includes("@")) {
+                    window.location.href = 'success.html';
+                }else {
+                    // error
+                    
+                    error.style.display='inline',
+                    emailInput.style.backgroundColor = 'rgba(248, 160, 160, 0.422)';
+                    emailInput.style.border = '1px solid rgb(233, 131, 131)';
+                    emailInput.style.color = 'rgb(233, 131, 131)';
+                    console.log("ta vacio pe mierda")
+                }
+                  
+                }
+            
+                var form = document.querySelector('form');
+                form.addEventListener('submit', getEmail);
+                            
+                        </script>
+            </body>
+</html>
